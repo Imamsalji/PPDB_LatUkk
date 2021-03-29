@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->date('tgl_lahir');
             $table->text('alamat');
             $table->string('agama');
+            $table->boolean('keterangan');
             $table->timestamps();
         });
     }

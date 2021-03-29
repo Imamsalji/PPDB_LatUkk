@@ -61,6 +61,10 @@ class HomeController extends Controller
             ]);
         return back();
     }
-
+    public function show($id)
+    {
+        $student = Student::findorfail($id);
+        return view('data.show',compact('student'));
+    }
     
 }

@@ -61,15 +61,21 @@
                     <td><span class="badge badge-success">Diterima</span></td>
                     @elseif ($item->keterangan == NULL)
                     <td><span class="badge badge-warning">Proses</span>
+                    </td>
+                    <td>
+
                         <a class="btn btn-success" href="{{ route('diterima', $item->id) }}">Terima</a>
-                        <a class="btn btn-danger" href="{{ route('ditolak', $item->id) }}">Tolak</a>
+                    </td>
+                    <td>
+
+                        <a class="btn btn-danger"  href="{{ route('ditolak', $item->id) }}">Tolak</a>
                     </td>
 
                     @else
                     <td><span class="badge badge-danger">Ditolak</span></td>
 
                     @endif 
-                    <td><a href="">Selengkapnya...</a></td>
+                    <td><a href="{{route('show', $item->id)}}">Selengkapnya...</a></td>
                     
                 </tr>
                 @endforeach

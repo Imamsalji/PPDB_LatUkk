@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('tolak', 'HomeController@tolak')->name('tolak');
     Route::get('diterima/{id}', 'HomeController@diterima')->name('diterima');
     Route::get('ditolak/{id}', 'HomeController@ditolak')->name('ditolak');
+    Route::get('show/{id}', 'HomeController@show')->name('show');
 });
 Auth::routes();
 

@@ -19,6 +19,8 @@ class DashboardController extends Controller
 
     public function pendaftaran(Request $request)
     {
+        $this->_validasi($request);
+        dd($request->all());
         Student::create([
             'nis' => $request->nis,
             'nisn' => $request->nisn,
@@ -59,6 +61,60 @@ class DashboardController extends Controller
             'fathers_id' => $request->nisn,
             ]);
         return redirect('/');
+    }
+
+    public function _validasi(Request $request)
+    {
+        $validation = $request->validate(
+            [
+                'nis' => 'required',
+                'nisn' => 'required',
+                'nama' => 'required',
+                'jk' => 'required',
+                'temp_lahir1' => 'required',
+                'tgl_lahir1' => 'required',
+                'alamat' => 'required',
+                'agama' => 'required',
+                'asal_sekolah' => 'required',
+                'Alamat_Sekolah' => 'required',
+                'no_skhun' => 'required',
+                'no_peserta' => 'required',
+                'nm_ibu' => 'required',
+                'tmpt_lahir2' => 'required',
+                'tgl_lahir2' => 'required',
+                'terakhir1' => 'required',
+                'pekerjaan1' => 'required',
+                'nm_ayah' => 'required',
+                'tmpt_lahir3' => 'required',
+                'tgl_lahir3' => 'required',
+                'terakhir2' => 'required',
+                'pekerjaan2' => 'required',
+            ],
+            [
+                'nis.required' => 'Nis Wajib diisi',
+                'nisn.required' => 'NISN Wajib diisi',
+                'nama.required' => 'Nama Wajib diisi',
+                'jk.required' => 'Jenis Kelamin Wajib diisi',
+                'temp_lahir1.required' => 'Tempat Lahir Wajib diisi',
+                'tgl_lahir1.required' => 'Taggal LahirWajib diisi',
+                'alamat.required' => 'Alamat Wajib diisi',
+                'agama.required' => 'Agama Wajib diisi',
+                'asal_sekolah.required' => 'Asal Sekolah Wajib diisi',
+                'Alamat_Sekolah.required' => 'Alamat Sekolah Wajib diisi',
+                'no_skhun.required' => 'Nomor SKHUN Wajib diisi',
+                'no_peserta.required' => 'Nomor Peserta Wajib diisi',
+                'nm_ibu.required' => 'Nama Ibu Wajib diisi',
+                'tmpt_lahir2.required' => 'Tempat LahirWajib diisi',
+                'tgl_lahir2.required' => 'Tanggal Lahir Wajib diisi',
+                'terakhir1.required' => 'Pendidikan Terakhir Wajib diisi',
+                'pekerjaan1.required' => 'Pekerjaan Ibu Wajib diisi',
+                'nm_ayah.required' => 'Nama ayah Wajib diisi',
+                'tmpt_lahir3.required' => 'Tempat Lahir Wajib diisi',
+                'tgl_lahir3.required' => 'Tanggal Lahir Wajib diisi',
+                'terakhir2.required' => 'Pendidikan Terakhir Wajib diisi',
+                'pekerjaan2.required' => 'Pekerjaan Wajib diisi',
+            ]
+        );
     }
 
 }
